@@ -67,14 +67,73 @@
       overflow: visible;
     }
 
+    .mondoo-wordmark-window {
+      position: relative;
+      width: clamp(138px, 13vw, 178px);
+      height: clamp(44px, 4vw, 58px);
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
     .mondoo-wordmark {
+      position: absolute;
+      left: 0;
+      top: 14px;
       color: #f7f7f7;
       font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: clamp(30px, 3vw, 44px);
       font-weight: 600;
       line-height: 1;
       letter-spacing: -0.055em;
-      transform: translateY(14px);
+      white-space: nowrap;
+      will-change: transform, opacity;
+    }
+
+    .mondoo-wordmark--mondoo {
+      animation: word-up-mondoo 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+    }
+
+    .mondoo-wordmark--business {
+      animation: word-up-business 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+    }
+
+    @keyframes word-up-mondoo {
+      0%, 35% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      45%, 85% {
+        transform: translateY(-145%);
+        opacity: 0;
+      }
+
+      86%, 99% {
+        transform: translateY(145%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes word-up-business {
+      0%, 39% {
+        transform: translateY(145%);
+        opacity: 0;
+      }
+
+      49%, 84% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      94%, 100% {
+        transform: translateY(-145%);
+        opacity: 0;
+      }
     }
 
     @media (max-width: 640px) {
@@ -86,7 +145,13 @@
         width: 54px;
       }
 
+      .mondoo-wordmark-window {
+        width: 116px;
+        height: 43px;
+      }
+
       .mondoo-wordmark {
+        top: 14px;
         font-size: 29px;
       }
     }
@@ -96,8 +161,26 @@
         width: 48px;
       }
 
+      .mondoo-wordmark-window {
+        width: 104px;
+        height: 39px;
+      }
+
       .mondoo-wordmark {
+        top: 13px;
         font-size: 26px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mondoo-wordmark--mondoo {
+        animation: none;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .mondoo-wordmark--business {
+        display: none;
       }
     }
   </style>
@@ -115,7 +198,7 @@
       <rect width="1440" height="900" fill="#000000" />
     </svg>
 
-    <div class="mondoo-brand" role="img" aria-label="mondoo">
+    <div class="mondoo-brand" role="img" aria-label="mondoo business">
       <svg
         class="mondoo-logo"
         viewBox="615 340 215 215"
@@ -175,7 +258,10 @@
           </linearGradient>
         </defs>
       </svg>
-      <span class="mondoo-wordmark">mondoo</span>
+      <span class="mondoo-wordmark-window" aria-hidden="true">
+        <span class="mondoo-wordmark mondoo-wordmark--mondoo">mondoo</span>
+        <span class="mondoo-wordmark mondoo-wordmark--business">business</span>
+      </span>
     </div>
   </main>
 </body>
