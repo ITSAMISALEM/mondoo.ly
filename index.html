@@ -71,6 +71,50 @@
       overflow: visible;
     }
 
+    .mondoo-logo--draw .draw-stroke-main,
+    .mondoo-logo--draw .draw-stroke-ghost {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mondoo-logo--draw .draw-stroke-main {
+      stroke-width: 12;
+      opacity: 1;
+    }
+
+    .mondoo-logo--draw .draw-stroke-ghost {
+      stroke-width: 9.5;
+      opacity: 0.38;
+    }
+
+    .mondoo-logo--draw .p1-main,
+    .mondoo-logo--draw .p1-ghost {
+      stroke: url(#logo-gradient-1);
+    }
+
+    .mondoo-logo--draw .p2-main,
+    .mondoo-logo--draw .p2-ghost {
+      stroke: url(#logo-gradient-2);
+    }
+
+    .mondoo-logo--draw .p3-main,
+    .mondoo-logo--draw .p3-ghost {
+      stroke: url(#logo-gradient-3);
+    }
+
+    .mondoo-logo--draw .p1-ghost {
+      transform: translate(1.5px, -0.8px);
+    }
+
+    .mondoo-logo--draw .p2-ghost {
+      transform: translate(-1px, 1.1px);
+    }
+
+    .mondoo-logo--draw .p3-ghost {
+      transform: translate(1.1px, 0.7px);
+    }
+
     .mondoo-wordmark-window {
       position: relative;
       width: clamp(138px, 13vw, 178px);
@@ -201,25 +245,21 @@
 
     <div class="mondoo-brand" role="img" aria-label="mondoo business">
       <svg
-        class="mondoo-logo"
+        class="mondoo-logo mondoo-logo--draw"
         viewBox="615 340 215 215"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMid meet"
         aria-hidden="true"
       >
-        <path
-          d="M643.956 544.085C662.709 551.218 691.956 515.101 709.282 463.415C726.607 411.73 725.45 364.048 706.696 356.915C687.943 349.782 658.696 385.899 641.37 437.585C624.045 489.27 625.202 536.952 643.956 544.085Z"
-          fill="url(#logo-gradient-1)"
-        />
-        <path
-          d="M714.854 544.362C731.194 550.576 756.009 521.1 770.281 478.524C784.553 435.948 782.876 396.396 766.537 390.181C750.198 383.966 725.382 413.443 711.111 456.018C696.839 498.594 698.515 538.147 714.854 544.362Z"
-          fill="url(#logo-gradient-2)"
-        />
-        <path
-          d="M772.39 544.624C784.537 549.244 802.356 529.203 812.192 499.862C822.027 470.521 820.154 442.99 808.007 438.371C795.861 433.751 778.042 453.791 768.206 483.132C758.371 512.473 760.244 540.004 772.39 544.624Z"
-          fill="url(#logo-gradient-3)"
-        />
+        <path class="draw-stroke-ghost p1-ghost" d="M643.956 544.085C662.709 551.218 691.956 515.101 709.282 463.415C726.607 411.73 725.45 364.048 706.696 356.915C687.943 349.782 658.696 385.899 641.37 437.585C624.045 489.27 625.202 536.952 643.956 544.085Z" />
+        <path class="draw-stroke-main p1-main" d="M643.956 544.085C662.709 551.218 691.956 515.101 709.282 463.415C726.607 411.73 725.45 364.048 706.696 356.915C687.943 349.782 658.696 385.899 641.37 437.585C624.045 489.27 625.202 536.952 643.956 544.085Z" />
+
+        <path class="draw-stroke-ghost p2-ghost" d="M714.854 544.362C731.194 550.576 756.009 521.1 770.281 478.524C784.553 435.948 782.876 396.396 766.537 390.181C750.198 383.966 725.382 413.443 711.111 456.018C696.839 498.594 698.515 538.147 714.854 544.362Z" />
+        <path class="draw-stroke-main p2-main" d="M714.854 544.362C731.194 550.576 756.009 521.1 770.281 478.524C784.553 435.948 782.876 396.396 766.537 390.181C750.198 383.966 725.382 413.443 711.111 456.018C696.839 498.594 698.515 538.147 714.854 544.362Z" />
+
+        <path class="draw-stroke-ghost p3-ghost" d="M772.39 544.624C784.537 549.244 802.356 529.203 812.192 499.862C822.027 470.521 820.154 442.99 808.007 438.371C795.861 433.751 778.042 453.791 768.206 483.132C758.371 512.473 760.244 540.004 772.39 544.624Z" />
+        <path class="draw-stroke-main p3-main" d="M772.39 544.624C784.537 549.244 802.356 529.203 812.192 499.862C822.027 470.521 820.154 442.99 808.007 438.371C795.861 433.751 778.042 453.791 768.206 483.132C758.371 512.473 760.244 540.004 772.39 544.624Z" />
 
         <defs>
           <linearGradient id="logo-gradient-1" x1="757.438" y1="381.602" x2="690.728" y2="556.994" gradientUnits="userSpaceOnUse">
