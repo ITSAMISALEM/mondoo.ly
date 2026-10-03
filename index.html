@@ -75,8 +75,6 @@
       height: var(--logo-size);
       overflow: hidden;
       flex: 0 0 auto;
-      perspective: 700px;
-      perspective-origin: 50% 50%;
     }
 
     .mondoo-wordmark {
@@ -90,97 +88,64 @@
       line-height: 1;
       letter-spacing: -0.055em;
       white-space: nowrap;
-      backface-visibility: hidden;
-      transform-style: preserve-3d;
       will-change: transform, opacity, filter;
     }
 
-    .mondoo-wordmark--mondoo,
-    .mondoo-wordmark--business {
-      transform-origin: 50% 50%;
-    }
-
     .mondoo-wordmark--mondoo {
-      animation: word-flip-mondoo 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      animation: word-reveal-mondoo 7s linear infinite;
     }
 
     .mondoo-wordmark--business {
-      animation: word-flip-business 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      animation: word-reveal-business 7s linear infinite;
     }
 
-    @keyframes word-flip-mondoo {
-      0%, 33% {
-        transform: rotateX(0deg);
+    @keyframes word-reveal-mondoo {
+      0%, 36% {
+        transform: translateY(0) scale(1);
         opacity: 1;
         filter: blur(0);
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      36% {
-        transform: rotateX(-45deg);
-        opacity: 0.62;
-        filter: blur(0.45px);
-      }
-
-      40% {
-        transform: rotateX(-90deg);
+      44% {
+        transform: translateY(-118%) scale(0.985);
         opacity: 0;
-        filter: blur(0.8px);
+        filter: blur(2px);
       }
 
-      41%, 84% {
-        transform: rotateX(90deg);
+      44.01%, 86% {
+        transform: translateY(118%) scale(0.985);
         opacity: 0;
-        filter: blur(0.8px);
+        filter: blur(2px);
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      88% {
-        transform: rotateX(45deg);
-        opacity: 0.62;
-        filter: blur(0.45px);
-      }
-
-      92%, 100% {
-        transform: rotateX(0deg);
+      94%, 100% {
+        transform: translateY(0) scale(1);
         opacity: 1;
         filter: blur(0);
       }
     }
 
-    @keyframes word-flip-business {
-      0%, 33% {
-        transform: rotateX(90deg);
+    @keyframes word-reveal-business {
+      0%, 36% {
+        transform: translateY(118%) scale(0.985);
         opacity: 0;
-        filter: blur(0.8px);
+        filter: blur(2px);
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      36% {
-        transform: rotateX(45deg);
-        opacity: 0.62;
-        filter: blur(0.45px);
-      }
-
-      40%, 84% {
-        transform: rotateX(0deg);
+      44%, 86% {
+        transform: translateY(0) scale(1);
         opacity: 1;
         filter: blur(0);
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      88% {
-        transform: rotateX(-45deg);
-        opacity: 0.62;
-        filter: blur(0.45px);
-      }
-
-      92% {
-        transform: rotateX(-90deg);
+      94%, 100% {
+        transform: translateY(-118%) scale(0.985);
         opacity: 0;
-        filter: blur(0.8px);
-      }
-
-      93%, 100% {
-        transform: rotateX(90deg);
-        opacity: 0;
-        filter: blur(0.8px);
+        filter: blur(2px);
       }
     }
 
