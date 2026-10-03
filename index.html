@@ -49,6 +49,8 @@
     }
 
     .mondoo-brand {
+      --logo-size: clamp(58px, 5.2vw, 78px);
+      --word-size: clamp(30px, 3vw, 44px);
       position: absolute;
       left: 50%;
       top: 46%;
@@ -61,7 +63,7 @@
 
     .mondoo-logo {
       display: block;
-      width: clamp(58px, 5.2vw, 78px);
+      width: var(--logo-size);
       height: auto;
       flex: 0 0 auto;
       overflow: visible;
@@ -70,101 +72,116 @@
     .mondoo-wordmark-window {
       position: relative;
       width: clamp(138px, 13vw, 178px);
-      height: clamp(44px, 4vw, 58px);
+      height: var(--logo-size);
       overflow: hidden;
       flex: 0 0 auto;
+      perspective: 700px;
+      perspective-origin: 50% 50%;
     }
 
     .mondoo-wordmark {
       position: absolute;
       left: 0;
-      top: 21px;
+      top: calc((var(--logo-size) - var(--word-size)) / 2 + 14px);
       color: #f7f7f7;
       font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: clamp(30px, 3vw, 44px);
+      font-size: var(--word-size);
       font-weight: 600;
       line-height: 1;
       letter-spacing: -0.055em;
       white-space: nowrap;
-      will-change: transform, opacity;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      will-change: transform, opacity, filter;
     }
 
     .mondoo-wordmark--mondoo {
-      animation: word-up-mondoo 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+      transform-origin: 50% 100%;
+      animation: word-flip-mondoo 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
 
     .mondoo-wordmark--business {
-      animation: word-up-business 6s cubic-bezier(0.76, 0, 0.24, 1) infinite;
+      transform-origin: 50% 0%;
+      animation: word-flip-business 6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
     }
 
-    @keyframes word-up-mondoo {
-      0%, 35% {
-        transform: translateY(0);
+    @keyframes word-flip-mondoo {
+      0%, 34% {
+        transform: rotateX(0deg) translateY(0);
         opacity: 1;
+        filter: blur(0);
       }
 
-      45%, 85% {
-        transform: translateY(-145%);
+      42% {
+        transform: rotateX(90deg) translateY(-5px);
         opacity: 0;
+        filter: blur(1px);
       }
 
-      86%, 99% {
-        transform: translateY(145%);
+      43%, 85% {
+        transform: rotateX(90deg) translateY(-5px);
         opacity: 0;
+        filter: blur(1px);
       }
 
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes word-up-business {
-      0%, 39% {
-        transform: translateY(145%);
+      86% {
+        transform: rotateX(-90deg) translateY(5px);
         opacity: 0;
-      }
-
-      49%, 84% {
-        transform: translateY(0);
-        opacity: 1;
+        filter: blur(1px);
       }
 
       94%, 100% {
-        transform: translateY(-145%);
+        transform: rotateX(0deg) translateY(0);
+        opacity: 1;
+        filter: blur(0);
+      }
+    }
+
+    @keyframes word-flip-business {
+      0%, 34% {
+        transform: rotateX(-90deg) translateY(5px);
         opacity: 0;
+        filter: blur(1px);
+      }
+
+      42%, 84% {
+        transform: rotateX(0deg) translateY(0);
+        opacity: 1;
+        filter: blur(0);
+      }
+
+      92% {
+        transform: rotateX(90deg) translateY(-5px);
+        opacity: 0;
+        filter: blur(1px);
+      }
+
+      93%, 100% {
+        transform: rotateX(90deg) translateY(-5px);
+        opacity: 0;
+        filter: blur(1px);
       }
     }
 
     @media (max-width: 640px) {
-      .mondoo-logo {
-        width: 54px;
+      .mondoo-brand {
+        --logo-size: 54px;
+        --word-size: 29px;
       }
 
       .mondoo-wordmark-window {
         width: 116px;
-        height: 43px;
-      }
-
-      .mondoo-wordmark {
-        top: 21px;
-        font-size: 29px;
       }
     }
 
     @media (max-height: 500px) {
-      .mondoo-logo {
-        width: 48px;
+      .mondoo-brand {
+        --logo-size: 48px;
+        --word-size: 26px;
       }
 
       .mondoo-wordmark-window {
         width: 104px;
-        height: 39px;
-      }
-
-      .mondoo-wordmark {
-        top: 21px;
-        font-size: 26px;
       }
     }
 
