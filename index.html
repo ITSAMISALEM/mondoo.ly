@@ -2,116 +2,170 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#1F1E1D" />
   <title>mondoo.ly</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     html,
     body {
       width: 100%;
+      min-width: 100%;
       height: 100%;
+      min-height: 100%;
       margin: 0;
       background: #1F1E1D;
       overflow: hidden;
     }
 
     body {
-      min-height: 100dvh;
+      min-height: 100svh;
     }
 
-    .mondoo-frame {
+    .mondoo-stage {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100svh;
+      overflow: hidden;
+      background: #1F1E1D;
+    }
+
+    .mondoo-background {
+      position: absolute;
+      inset: 0;
       display: block;
-      width: 100vw;
-      height: 100dvh;
+      width: 100%;
+      height: 100%;
       border: 0;
       border-radius: 0;
+    }
+
+    .mondoo-logo {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      display: block;
+      width: clamp(72px, 7vw, 104px);
+      height: auto;
+      transform: translate(-50%, -50%);
+      overflow: visible;
+    }
+
+    @media (max-width: 640px) {
+      .mondoo-logo {
+        width: 72px;
+      }
+    }
+
+    @media (max-height: 500px) {
+      .mondoo-logo {
+        width: 64px;
+      }
     }
   </style>
 </head>
 <body>
-  <svg
-    class="mondoo-frame"
-    viewBox="0 0 1440 900"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="xMidYMid slice"
-    role="img"
-    aria-label="mondoo.ly background"
-  >
-    <rect width="1440" height="900" fill="url(#paint0_linear)" />
-    <rect width="1440" height="900" fill="url(#paint1_radial)" />
+  <main class="mondoo-stage" aria-label="mondoo.ly">
+    <svg
+      class="mondoo-background"
+      viewBox="0 0 1440 900"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      <rect width="1440" height="900" fill="url(#background-linear)" />
+      <rect width="1440" height="900" fill="url(#background-radial)" />
 
-    <path
-      d="M643.956 544.085C662.709 551.218 691.956 515.101 709.282 463.415C726.607 411.73 725.45 364.048 706.696 356.915C687.943 349.782 658.696 385.899 641.37 437.585C624.045 489.27 625.202 536.952 643.956 544.085Z"
-      fill="url(#paint2_linear)"
-    />
-    <path
-      d="M714.854 544.362C731.194 550.576 756.009 521.1 770.281 478.524C784.553 435.948 782.876 396.396 766.537 390.181C750.198 383.966 725.382 413.443 711.111 456.018C696.839 498.594 698.515 538.147 714.854 544.362Z"
-      fill="url(#paint3_linear)"
-    />
-    <path
-      d="M772.39 544.624C784.537 549.244 802.356 529.203 812.192 499.862C822.027 470.521 820.154 442.99 808.007 438.371C795.861 433.751 778.042 453.791 768.206 483.132C758.371 512.473 760.244 540.004 772.39 544.624Z"
-      fill="url(#paint4_linear)"
-    />
+      <defs>
+        <linearGradient id="background-linear" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#1F1E1D" />
+          <stop offset="0.3" stop-color="#201F1F" />
+          <stop offset="0.6" stop-color="#232122" />
+          <stop offset="1" stop-color="#222021" />
+        </linearGradient>
 
-    <defs>
-      <linearGradient id="paint0_linear" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#1F1E1D" />
-        <stop offset="0.3" stop-color="#201F1F" />
-        <stop offset="0.6" stop-color="#232122" />
-        <stop offset="1" stop-color="#222021" />
-      </linearGradient>
+        <radialGradient
+          id="background-radial"
+          cx="0"
+          cy="0"
+          r="1"
+          gradientUnits="userSpaceOnUse"
+          gradientTransform="translate(718.73 855.978) scale(660.317 572.283)"
+        >
+          <stop stop-color="#505050" />
+          <stop offset="0.3" stop-color="#3E3E3E" stop-opacity="0.9" />
+          <stop offset="0.6" stop-color="#2A2A2A" stop-opacity="0.6" />
+          <stop offset="1" stop-color="#222021" stop-opacity="0" />
+        </radialGradient>
+      </defs>
+    </svg>
 
-      <radialGradient
-        id="paint1_radial"
-        cx="0"
-        cy="0"
-        r="1"
-        gradientUnits="userSpaceOnUse"
-        gradientTransform="translate(718.73 855.978) scale(660.317 572.283)"
-      >
-        <stop stop-color="#505050" />
-        <stop offset="0.3" stop-color="#3E3E3E" stop-opacity="0.9" />
-        <stop offset="0.6" stop-color="#2A2A2A" stop-opacity="0.6" />
-        <stop offset="1" stop-color="#222021" stop-opacity="0" />
-      </radialGradient>
+    <svg
+      class="mondoo-logo"
+      viewBox="615 340 215 215"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="xMidYMid meet"
+      role="img"
+      aria-label="mondoo.ly"
+    >
+      <path
+        d="M643.956 544.085C662.709 551.218 691.956 515.101 709.282 463.415C726.607 411.73 725.45 364.048 706.696 356.915C687.943 349.782 658.696 385.899 641.37 437.585C624.045 489.27 625.202 536.952 643.956 544.085Z"
+        fill="url(#logo-gradient-1)"
+      />
+      <path
+        d="M714.854 544.362C731.194 550.576 756.009 521.1 770.281 478.524C784.553 435.948 782.876 396.396 766.537 390.181C750.198 383.966 725.382 413.443 711.111 456.018C696.839 498.594 698.515 538.147 714.854 544.362Z"
+        fill="url(#logo-gradient-2)"
+      />
+      <path
+        d="M772.39 544.624C784.537 549.244 802.356 529.203 812.192 499.862C822.027 470.521 820.154 442.99 808.007 438.371C795.861 433.751 778.042 453.791 768.206 483.132C758.371 512.473 760.244 540.004 772.39 544.624Z"
+        fill="url(#logo-gradient-3)"
+      />
 
-      <linearGradient id="paint2_linear" x1="757.438" y1="381.602" x2="690.728" y2="556.994" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#EE8036" />
-        <stop offset="0.1" stop-color="#E8823B" />
-        <stop offset="0.25" stop-color="#E38A4A" />
-        <stop offset="0.4" stop-color="#DC9560" />
-        <stop offset="0.55" stop-color="#D49C70" />
-        <stop offset="0.68" stop-color="#CDA685" />
-        <stop offset="0.8" stop-color="#C3B099" />
-        <stop offset="0.92" stop-color="#B9B9AE" />
-        <stop offset="1" stop-color="#AAC3C6" />
-      </linearGradient>
+      <defs>
+        <linearGradient id="logo-gradient-1" x1="757.438" y1="381.602" x2="690.728" y2="556.994" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#EE8036" />
+          <stop offset="0.1" stop-color="#E8823B" />
+          <stop offset="0.25" stop-color="#E38A4A" />
+          <stop offset="0.4" stop-color="#DC9560" />
+          <stop offset="0.55" stop-color="#D49C70" />
+          <stop offset="0.68" stop-color="#CDA685" />
+          <stop offset="0.8" stop-color="#C3B099" />
+          <stop offset="0.92" stop-color="#B9B9AE" />
+          <stop offset="1" stop-color="#AAC3C6" />
+        </linearGradient>
 
-      <linearGradient id="paint3_linear" x1="766.54" y1="359.163" x2="699.829" y2="534.555" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#EE8036" />
-        <stop offset="0.1" stop-color="#E8823B" />
-        <stop offset="0.25" stop-color="#E38A4A" />
-        <stop offset="0.4" stop-color="#DC9560" />
-        <stop offset="0.55" stop-color="#D49C70" />
-        <stop offset="0.68" stop-color="#CDA685" />
-        <stop offset="0.8" stop-color="#C3B099" />
-        <stop offset="0.92" stop-color="#B9B9AE" />
-        <stop offset="1" stop-color="#AAC3C6" />
-      </linearGradient>
+        <linearGradient id="logo-gradient-2" x1="766.54" y1="359.163" x2="699.829" y2="534.555" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#EE8036" />
+          <stop offset="0.1" stop-color="#E8823B" />
+          <stop offset="0.25" stop-color="#E38A4A" />
+          <stop offset="0.4" stop-color="#DC9560" />
+          <stop offset="0.55" stop-color="#D49C70" />
+          <stop offset="0.68" stop-color="#CDA685" />
+          <stop offset="0.8" stop-color="#C3B099" />
+          <stop offset="0.92" stop-color="#B9B9AE" />
+          <stop offset="1" stop-color="#AAC3C6" />
+        </linearGradient>
 
-      <linearGradient id="paint4_linear" x1="777.07" y1="342.842" x2="710.36" y2="518.233" gradientUnits="userSpaceOnUse">
-        <stop stop-color="#EE8036" />
-        <stop offset="0.1" stop-color="#E8823B" />
-        <stop offset="0.25" stop-color="#E38A4A" />
-        <stop offset="0.4" stop-color="#DC9560" />
-        <stop offset="0.55" stop-color="#D49C70" />
-        <stop offset="0.68" stop-color="#CDA685" />
-        <stop offset="0.8" stop-color="#C3B099" />
-        <stop offset="0.92" stop-color="#B9B9AE" />
-        <stop offset="1" stop-color="#AAC3C6" />
-      </linearGradient>
-    </defs>
-  </svg>
+        <linearGradient id="logo-gradient-3" x1="777.07" y1="342.842" x2="710.36" y2="518.233" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#EE8036" />
+          <stop offset="0.1" stop-color="#E8823B" />
+          <stop offset="0.25" stop-color="#E38A4A" />
+          <stop offset="0.4" stop-color="#DC9560" />
+          <stop offset="0.55" stop-color="#D49C70" />
+          <stop offset="0.68" stop-color="#CDA685" />
+          <stop offset="0.8" stop-color="#C3B099" />
+          <stop offset="0.92" stop-color="#B9B9AE" />
+          <stop offset="1" stop-color="#AAC3C6" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </main>
 </body>
 </html>
