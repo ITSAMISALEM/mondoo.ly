@@ -58,7 +58,7 @@
       top: 46%;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 10px;
       transform: translate(-50%, -50%);
       white-space: nowrap;
     }
@@ -71,6 +71,14 @@
       filter: invert(1);
       flex: 0 0 auto;
       overflow: visible;
+    }
+
+    .mondoo-divider {
+      display: block;
+      width: 2px;
+      height: var(--logo-size);
+      flex: 0 0 2px;
+      color: rgba(255, 255, 255, 0.58);
     }
 
     .mondoo-wordmark-window {
@@ -203,6 +211,9 @@
 
     <div class="mondoo-brand" role="img" aria-label="mondoo business">
       <img class="mondoo-logo" src="/mondoo-logo-black.svg" width="512" height="512" alt="" aria-hidden="true" />
+      <svg class="mondoo-divider" viewBox="0 0 2 512" width="2" height="512" fill="none" aria-hidden="true" focusable="false">
+        <path d="M1 0V512" stroke="currentColor" stroke-width="1.5" />
+      </svg>
       <span class="mondoo-wordmark-window" aria-hidden="true">
         <span class="mondoo-wordmark mondoo-wordmark--mondoo">mondoo</span>
         <span class="mondoo-wordmark mondoo-wordmark--business">business</span>
