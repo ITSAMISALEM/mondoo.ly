@@ -83,7 +83,8 @@
 
     .mondoo-wordmark-window {
       position: relative;
-      width: clamp(138px, 13vw, 178px);
+      width: clamp(220px, 23vw, 285px);
+      max-width: calc(100vw - var(--logo-size) - 64px);
       height: var(--logo-size);
       overflow: hidden;
       flex: 0 0 auto;
@@ -103,59 +104,42 @@
       will-change: transform, opacity, filter;
     }
 
-    .mondoo-wordmark--mondoo {
-      animation: word-reveal-mondoo 7s linear infinite;
+    /* Keep each feature in the same place: no layout movement as labels change. */
+    .mondoo-wordmark {
+      opacity: 0;
+      animation: mondoo-feature-cycle 30s linear infinite both;
+      animation-delay: calc(var(--feature-index) * 3s);
     }
 
-    .mondoo-wordmark--business {
-      animation: word-reveal-business 7s linear infinite;
-    }
-
-    @keyframes word-reveal-mondoo {
-      0%, 36% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-        filter: blur(0);
-        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      44% {
-        transform: translateY(-118%) scale(0.985);
-        opacity: 0;
-        filter: blur(2px);
-      }
-
-      44.01%, 86% {
-        transform: translateY(118%) scale(0.985);
+    @keyframes mondoo-feature-cycle {
+      0% {
+        transform: translateY(75%);
         opacity: 0;
         filter: blur(2px);
         animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      94%, 100% {
-        transform: translateY(0) scale(1);
+      1% {
+        transform: translateY(0);
         opacity: 1;
         filter: blur(0);
       }
-    }
 
-    @keyframes word-reveal-business {
-      0%, 36% {
-        transform: translateY(118%) scale(0.985);
+      8% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0);
+        animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      10% {
+        transform: translateY(-75%);
         opacity: 0;
         filter: blur(2px);
-        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      44%, 86% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-        filter: blur(0);
-        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-      }
-
-      94%, 100% {
-        transform: translateY(-118%) scale(0.985);
+      10.01%, 100% {
+        transform: translateY(75%);
         opacity: 0;
         filter: blur(2px);
       }
@@ -168,7 +152,7 @@
       }
 
       .mondoo-wordmark-window {
-        width: 116px;
+        width: 200px;
       }
     }
 
@@ -179,19 +163,20 @@
       }
 
       .mondoo-wordmark-window {
-        width: 104px;
+        width: 178px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .mondoo-wordmark--mondoo {
+      .mondoo-wordmark {
         animation: none;
+        opacity: 0;
         transform: translateY(0);
-        opacity: 1;
+        filter: none;
       }
 
-      .mondoo-wordmark--business {
-        display: none;
+      .mondoo-wordmark:first-child {
+        opacity: 1;
       }
     }
   </style>
@@ -209,14 +194,22 @@
       <rect width="1440" height="900" fill="#000000" />
     </svg>
 
-    <div class="mondoo-brand" role="img" aria-label="mondoo business">
+    <div class="mondoo-brand" role="img" aria-label="Mondoo: business, docs, design, whiteboard, inbox, calendar, AI agents, workflows, CRM and commerce">
       <img class="mondoo-logo" src="/mondoo-logo-black.svg" width="512" height="512" alt="" aria-hidden="true" />
       <svg class="mondoo-divider" viewBox="0 0 2 512" width="2" height="512" fill="none" aria-hidden="true" focusable="false">
         <path d="M1 0V512" stroke="currentColor" stroke-width="1.5" />
       </svg>
       <span class="mondoo-wordmark-window" aria-hidden="true">
-        <span class="mondoo-wordmark mondoo-wordmark--mondoo">mondoo</span>
-        <span class="mondoo-wordmark mondoo-wordmark--business">business</span>
+        <span class="mondoo-wordmark" style="--feature-index: 0;">Business</span>
+        <span class="mondoo-wordmark" style="--feature-index: 1;">Docs</span>
+        <span class="mondoo-wordmark" style="--feature-index: 2;">Design</span>
+        <span class="mondoo-wordmark" style="--feature-index: 3;">Whiteboard</span>
+        <span class="mondoo-wordmark" style="--feature-index: 4;">Inbox</span>
+        <span class="mondoo-wordmark" style="--feature-index: 5;">Calendar</span>
+        <span class="mondoo-wordmark" style="--feature-index: 6;">AI Agents</span>
+        <span class="mondoo-wordmark" style="--feature-index: 7;">Workflows</span>
+        <span class="mondoo-wordmark" style="--feature-index: 8;">CRM</span>
+        <span class="mondoo-wordmark" style="--feature-index: 9;">Commerce</span>
       </span>
     </div>
   </main>
