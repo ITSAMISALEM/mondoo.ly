@@ -47,6 +47,7 @@
     }
 
     .brands {
+      --brand-logo-size: clamp(58px, 8vw, 78px);
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -56,8 +57,8 @@
 
     .brand-logo {
       display: block;
-      width: clamp(58px, 8vw, 78px);
-      height: clamp(58px, 8vw, 78px);
+      width: var(--brand-logo-size);
+      height: var(--brand-logo-size);
       object-fit: contain;
       flex: none;
     }
@@ -66,12 +67,12 @@
       filter: invert(1);
     }
 
-    .brand-cross {
-      color: #777;
-      font-size: clamp(19px, 3vw, 24px);
-      font-weight: 400;
-      line-height: 1;
-      user-select: none;
+    .brand-divider {
+      display: block;
+      width: 2px;
+      height: var(--brand-logo-size);
+      flex: 0 0 2px;
+      color: rgba(255, 255, 255, .55);
     }
 
     .tagline {
@@ -154,9 +155,7 @@
 
     @media (max-width: 390px) {
       .stage { padding-inline: 12px; }
-      .brands { gap: 14px; }
-      .brand-logo { width: 58px; height: 58px; }
-      .brand-cross { font-size: 20px; }
+      .brands { --brand-logo-size: 58px; gap: 14px; }
     }
 
     @media (max-height: 530px) and (min-width: 600px) {
@@ -177,7 +176,9 @@
     <section class="hero" aria-label="Mondoo and THE32 products">
       <div class="brands" aria-label="Mondoo and THE32">
         <img class="brand-logo brand-logo--mondoo" src="/mondoo-logo-black.svg" width="78" height="78" alt="Mondoo" />
-        <span class="brand-cross" aria-hidden="true">|</span>
+        <svg class="brand-divider" viewBox="0 0 2 512" width="2" height="512" fill="none" aria-hidden="true" focusable="false">
+          <path d="M1 0V512" stroke="currentColor" stroke-width="1.5" />
+        </svg>
         <img class="brand-logo" src="/the32-logo-light.svg" width="78" height="78" alt="THE32" />
       </div>
 
