@@ -3,252 +3,287 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="Mondoo × THE32. One space, everything connected. Coming soon." />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="shortcut icon" href="/favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&display=swap" rel="stylesheet" />
-  <title>mondoo.ly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Mondoo × THE32 — Coming Soon</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    *, *::before, *::after { box-sizing: border-box; }
 
-    html,
-    body {
+    html, body {
       width: 100%;
-      min-width: 100%;
-      height: 100%;
       min-height: 100%;
       margin: 0;
-      background: #000000;
-      overflow: hidden;
+      background: #050505;
     }
 
     body {
-      min-height: 100svh;
-    }
-
-    .mondoo-stage {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      min-height: 100svh;
-      overflow: hidden;
-      background: #000000;
-    }
-
-    .mondoo-background {
-      position: absolute;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      border-radius: 0;
-    }
-
-    .mondoo-brand {
-      --logo-size: clamp(58px, 5.2vw, 78px);
-      --word-size: clamp(30px, 3vw, 44px);
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      transform: translate(-50%, -50%);
-      white-space: nowrap;
-    }
-
-    .mondoo-logo {
-      display: block;
-      width: var(--logo-size);
-      height: auto;
-      /* Keep the light-mode black asset visible on this dark landing page. */
-      filter: invert(1);
-      flex: 0 0 auto;
-      overflow: visible;
-    }
-
-    .mondoo-divider {
-      display: block;
-      width: 2px;
-      height: var(--logo-size);
-      flex: 0 0 2px;
-      color: rgba(255, 255, 255, 0.58);
-    }
-
-    /* An intrinsically sized wordmark keeps the complete lockup centered. */
-    .mondoo-wordmark-window {
-      position: relative;
-      display: block;
-      width: 112px;
-      max-width: calc(100vw - var(--logo-size) - 48px);
-      height: var(--logo-size);
-      overflow: hidden;
-      flex: 0 1 auto;
-      transition: width 550ms cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .mondoo-wordmark,
-    .mondoo-wordmark-measure {
-      position: absolute;
-      left: 0;
-      top: 50%;
       color: #f7f7f7;
       font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: var(--word-size);
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: -0.055em;
-      white-space: nowrap;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .mondoo-product {
+    .stage {
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 48px 20px;
+      background: #050505;
+    }
+
+    .hero {
+      width: min(100%, 520px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: appear 780ms cubic-bezier(.22, 1, .36, 1) both;
+    }
+
+    .the32-mark {
+      display: block;
+      width: clamp(116px, 13vw, 152px);
+      height: clamp(116px, 13vw, 152px);
+      object-fit: contain;
+      flex: none;
+    }
+
+    .brands {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(13px, 2.8vw, 24px);
+      margin-top: 31px;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    .brand {
       display: inline-flex;
       align-items: center;
-      gap: clamp(7px, 1vw, 10px);
-      white-space: nowrap;
+      justify-content: center;
+      gap: 9px;
+      min-width: 0;
+      line-height: 1;
+      font-weight: 600;
+      font-size: clamp(23px, 4.2vw, 30px);
+      letter-spacing: -.055em;
     }
 
-    .mondoo-product-icon {
+    .mondoo-mark {
+      width: clamp(23px, 3.6vw, 29px);
+      height: clamp(23px, 3.6vw, 29px);
       display: block;
-      width: clamp(20px, 2vw, 26px);
-      height: clamp(20px, 2vw, 26px);
-      flex: 0 0 auto;
+      flex: none;
+      filter: invert(1);
     }
 
-    .mondoo-product-label,
-    .mondoo-product-label-measure {
-      display: inline-block;
+    .brand-cross {
+      color: #747474;
+      font-weight: 400;
+      font-size: clamp(22px, 3.2vw, 28px);
+      line-height: 1;
+      user-select: none;
     }
 
-    .mondoo-wordmark {
-      transform: translateY(-50%);
+    .tagline {
+      margin: 23px 0 0;
+      color: #929292;
+      font-weight: 500;
+      font-size: clamp(12px, 2.2vw, 14px);
+      line-height: 1.7;
+      letter-spacing: -.015em;
+    }
+
+    .rule {
+      width: min(220px, 60vw);
+      height: 1px;
+      background: rgba(255, 255, 255, .13);
+      margin-top: 30px;
+    }
+
+    .products {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-top: 26px;
+      width: 100%;
+    }
+
+    .products-heading {
+      margin: 0;
+      color: #686868;
+      font-size: 10px;
+      line-height: 1;
+      letter-spacing: .21em;
+      font-weight: 600;
+    }
+
+    .product {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      height: 38px;
+      max-width: 100%;
+      color: #ededed;
+      font-size: clamp(19px, 3.4vw, 23px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.035em;
+      transform: translateY(0);
       opacity: 1;
       filter: blur(0);
-      transition: opacity 240ms ease, transform 280ms cubic-bezier(0.4, 0, 0.2, 1), filter 240ms ease;
+      transition: transform 260ms cubic-bezier(.4, 0, .2, 1), opacity 260ms ease, filter 260ms ease;
+      will-change: transform, opacity, filter;
     }
 
-    .mondoo-wordmark.is-exiting {
-      transform: translateY(calc(-50% - 12px));
+    .product.is-exiting {
+      transform: translateY(-12px);
       opacity: 0;
       filter: blur(2px);
     }
 
-    .mondoo-wordmark.is-entering {
-      transform: translateY(calc(-50% + 12px));
+    .product.is-entering {
+      transform: translateY(12px);
       opacity: 0;
       filter: blur(2px);
     }
 
-    .mondoo-wordmark-measure {
-      width: max-content;
-      visibility: hidden;
-      pointer-events: none;
-      transform: translateY(-50%);
+    .product-icon {
+      width: 23px;
+      height: 23px;
+      flex: 0 0 23px;
+      display: block;
+      object-fit: contain;
     }
 
-    @media (max-width: 640px) {
-      .mondoo-brand {
-        --logo-size: 54px;
-        --word-size: 29px;
-      }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 35px;
+      color: #777;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: .19em;
     }
 
-    @media (max-height: 500px) {
-      .mondoo-brand {
-        --logo-size: 48px;
-        --word-size: 26px;
-      }
+    .status-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #bbb;
+      animation: pulse 3.2s ease-in-out infinite;
+    }
+
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .35; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 390px) {
+      .stage { padding-inline: 12px; }
+      .brands { gap: 10px; }
+      .brand { gap: 6px; font-size: 21px; }
+      .mondoo-mark { width: 22px; height: 22px; }
+      .brand-cross { font-size: 21px; }
+      .the32-mark { width: 110px; height: 110px; }
+    }
+
+    @media (max-height: 530px) and (min-width: 600px) {
+      .stage { padding-block: 25px; }
+      .the32-mark { width: 95px; height: 95px; }
+      .brands { margin-top: 18px; }
+      .tagline { margin-top: 15px; }
+      .rule { margin-top: 17px; }
+      .products { margin-top: 16px; }
+      .status { margin-top: 18px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .mondoo-wordmark-window,
-      .mondoo-wordmark {
-        transition: none;
-      }
+      .hero, .status-dot { animation: none; }
+      .product { transition: none; }
     }
   </style>
 </head>
 <body>
-  <main class="mondoo-stage" aria-label="mondoo.ly">
-    <svg
-      class="mondoo-background"
-      viewBox="0 0 1440 900"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
-      aria-hidden="true"
-    >
-      <rect width="1440" height="900" fill="#000000" />
-    </svg>
+  <main class="stage">
+    <section class="hero" aria-label="Mondoo and THE32 coming soon">
+      <img class="the32-mark" src="/the32-logo-light.svg" width="150" height="150" alt="THE32 logo" />
 
-    <div class="mondoo-brand" role="img" aria-label="Mondoo products: Inbox, Docs, Design, Whiteboard, Calendar and AI Agents">
-      <img class="mondoo-logo" src="/mondoo-logo-black.svg" width="512" height="512" alt="" aria-hidden="true" />
-      <svg class="mondoo-divider" viewBox="0 0 2 512" width="2" height="512" fill="none" aria-hidden="true" focusable="false">
-        <path d="M1 0V512" stroke="currentColor" stroke-width="1.5" />
-      </svg>
-      <span class="mondoo-wordmark-window" aria-hidden="true">
-        <span class="mondoo-wordmark">
-          <span class="mondoo-product">
-            <img class="mondoo-product-icon" src="/product-icon-inbox.svg" width="26" height="26" alt="" aria-hidden="true" />
-            <span class="mondoo-product-label">Inbox</span>
-          </span>
-        </span>
-        <span class="mondoo-wordmark-measure">
-          <span class="mondoo-product">
-            <img class="mondoo-product-icon" src="/product-icon-inbox.svg" width="26" height="26" alt="" aria-hidden="true" />
-            <span class="mondoo-product-label-measure">Inbox</span>
-          </span>
-        </span>
-      </span>
-    </div>
+      <div class="brands" aria-label="Mondoo and THE32">
+        <div class="brand">
+          <img class="mondoo-mark" src="/mondoo-logo-black.svg" width="29" height="29" alt="" aria-hidden="true" />
+          <span>mondoo</span>
+        </div>
+        <span class="brand-cross" aria-hidden="true">×</span>
+        <div class="brand"><span>THE32</span></div>
+      </div>
+
+      <p class="tagline">One space. Everything connected.</p>
+      <div class="rule" aria-hidden="true"></div>
+
+      <div class="products">
+        <p class="products-heading">PRODUCTS</p>
+        <div class="product" aria-label="Featured product: Inbox">
+          <img class="product-icon" src="/product-icon-inbox.svg" width="23" height="23" alt="" aria-hidden="true" />
+          <span class="product-name">Inbox</span>
+        </div>
+      </div>
+
+      <div class="status">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>COMING SOON</span>
+      </div>
+    </section>
   </main>
   <script>
     (() => {
-      const products = [{"name":"Inbox","icon":"/product-icon-inbox.svg"},{"name":"Docs","icon":"/the32-logo-light.svg"},{"name":"Design","icon":"/the32-logo-light.svg"},{"name":"Whiteboard","icon":"/the32-logo-light.svg"},{"name":"Calendar","icon":"/product-icon-calendar.svg"},{"name":"AI Agents","icon":"/product-icon-agents.svg"}];
-      const frame = document.querySelector(".mondoo-wordmark-window");
-      const wordmark = document.querySelector(".mondoo-wordmark");
-      const measure = document.querySelector(".mondoo-wordmark-measure");
-      const label = document.querySelector(".mondoo-product-label");
-      const measureLabel = document.querySelector(".mondoo-product-label-measure");
-      const icon = wordmark.querySelector(".mondoo-product-icon");
-      const measureIcon = measure.querySelector(".mondoo-product-icon");
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const products = [
+        { name: "Inbox", icon: "/product-icon-inbox.svg" },
+        { name: "Docs", icon: "/the32-logo-light.svg" },
+        { name: "Design", icon: "/the32-logo-light.svg" },
+        { name: "Whiteboard", icon: "/the32-logo-light.svg" },
+        { name: "Calendar", icon: "/product-icon-calendar.svg" },
+        { name: "AI Agents", icon: "/product-icon-agents.svg" }
+      ];
+
+      const panel = document.querySelector(".product");
+      const label = panel.querySelector(".product-name");
+      const icon = panel.querySelector(".product-icon");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       let current = 0;
 
-      // Measure the active label rather than reserving space for the longest.
-      // Because .mondoo-brand anchors at 50%, the full logo/divider/text
-      // composition remains centered as short and long labels alternate.
-      const sizeFor = (product) => {
-        measureLabel.textContent = product.name;
-        measureIcon.src = product.icon;
-        frame.style.width = Math.ceil(measure.getBoundingClientRect().width + 2) + "px";
-      };
-
-      sizeFor(products[current]);
-      document.fonts.ready.then(() => sizeFor(products[current]));
-      window.addEventListener("resize", () => sizeFor(products[current]));
-
       window.setInterval(() => {
-        if (reduceMotion.matches || document.hidden) return;
-        wordmark.classList.add("is-exiting");
+        if (reducedMotion.matches || document.hidden) return;
+        panel.classList.add("is-exiting");
         window.setTimeout(() => {
           current = (current + 1) % products.length;
           const product = products[current];
           label.textContent = product.name;
           icon.src = product.icon;
-          sizeFor(product);
-          wordmark.classList.remove("is-exiting");
-          wordmark.classList.add("is-entering");
+          panel.setAttribute("aria-label", "Featured product: " + product.name);
+          panel.classList.remove("is-exiting");
+          panel.classList.add("is-entering");
           window.requestAnimationFrame(() => {
-            window.requestAnimationFrame(() => wordmark.classList.remove("is-entering"));
+            window.requestAnimationFrame(() => panel.classList.remove("is-entering"));
           });
-        }, 280);
+        }, 260);
       }, 3700);
     })();
   </script>
