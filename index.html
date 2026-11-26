@@ -13,6 +13,8 @@
     body { margin: 0; background: var(--forest); color: var(--lime); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
     .stage { width: min(100%, 1600px); margin-inline: auto; min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; padding: clamp(28px, 5.3vw, 84px); gap: 48px; }
     header, footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .header-brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .header-logo { display: block; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 25%; }
     .wordmark { font-size: 26px; font-weight: 750; letter-spacing: -.075em; }
     .eyebrow { font-size: 11px; letter-spacing: .16em; font-weight: 600; text-transform: uppercase; }
     .status { display: inline-flex; align-items: center; gap: 9px; }
@@ -36,7 +38,9 @@
 <body>
   <div class="stage">
     <header>
-      <span class="wordmark">mondoo</span>
+      <div class="header-brand"><svg class="header-logo" width="36" height="36" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="810 205 290 290"><rect x="814" y="209" width="282" height="282" rx="70.5" fill="#172D27" stroke="#DDF49A" stroke-width="7"/>
+<circle cx="955" cy="350" r="101.953" fill="#DDF49A"/>
+<path d="M1019.08 455.734L849.266 285.919L839.654 295.531L1009.47 465.347Z M1003.06 471.755L833.246 301.94L823.634 311.552L993.45 481.368Z M987.042 487.777L817.226 317.96L807.613 327.573L977.429 497.388Z" fill="#172D27"/></svg><span class="wordmark">mondoo</span></div>
       <span class="eyebrow status">Coming soon</span>
     </header>
     <main>
