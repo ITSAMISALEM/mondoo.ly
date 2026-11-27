@@ -13,21 +13,21 @@
     body { margin: 0; background: var(--forest); color: var(--lime); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
     .stage { width: min(100%, 1600px); margin-inline: auto; min-height: 100vh; min-height: 100svh; display: grid; grid-template-rows: auto 1fr auto; padding: clamp(28px, 5.3vw, 84px); gap: 48px; }
     header, footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .header-brand { display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
-    .header-logo { display: block; width: 36px; height: 36px; flex: 0 0 36px; border-radius: 25%; }
-    .wordmark { font-size: 26px; font-weight: 750; letter-spacing: -.075em; }
+
+    .header-logo { display: block; width: 36px; height: 36px; flex: 0 0 36px; }
+
     .eyebrow { font-size: 11px; letter-spacing: .16em; font-weight: 600; text-transform: uppercase; }
     .status { display: inline-flex; align-items: center; gap: 9px; }
     .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); }
-    main { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: center; gap: clamp(24px, 5vw, 80px); }
+    main { display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: clamp(24px, 5vw, 80px); }
     h1 { margin: 0; font-size: clamp(48px, 7.1vw, 112px); line-height: .99; font-weight: 680; letter-spacing: -.065em; }
     .description { margin: 30px 0 0; max-width: 440px; font-size: clamp(17px, 1.75vw, 23px); line-height: 1.55; color: var(--lime); opacity: .85; }
-    .mark { display: block; width: min(100%, 390px); height: auto; justify-self: center; }
+
     footer { border-top: 1px solid rgba(221, 244, 154, .22); padding-top: 22px; font-size: 12px; letter-spacing: .035em; }
     @media (max-width: 720px) {
       .stage { gap: 36px; }
-      main { grid-template-columns: 1fr; gap: 24px; align-content: center; }
-      .mark { width: clamp(150px, 46vw, 235px); grid-row: 1; justify-self: start; }
+      main { align-content: center; }
+
       h1 { font-size: clamp(48px, 10.5vw, 76px); }
       .description { margin-top: 20px; }
       footer { flex-wrap: wrap; }
@@ -38,9 +38,9 @@
 <body>
   <div class="stage">
     <header>
-      <div class="header-brand"><svg class="header-logo" width="36" height="36" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="810 205 290 290"><rect x="814" y="209" width="282" height="282" rx="70.5" fill="#172D27" stroke="#DDF49A" stroke-width="7"/>
+      <svg class="header-logo" width="36" height="36" role="img" aria-label="Mondoo" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="853.047 248.047 203.906 203.906">
 <circle cx="955" cy="350" r="101.953" fill="#DDF49A"/>
-<path d="M1019.08 455.734L849.266 285.919L839.654 295.531L1009.47 465.347Z M1003.06 471.755L833.246 301.94L823.634 311.552L993.45 481.368Z M987.042 487.777L817.226 317.96L807.613 327.573L977.429 497.388Z" fill="#172D27"/></svg><span class="wordmark">mondoo</span></div>
+<path d="M1019.08 455.734L849.266 285.919L839.654 295.531L1009.47 465.347Z M1003.06 471.755L833.246 301.94L823.634 311.552L993.45 481.368Z M987.042 487.777L817.226 317.96L807.613 327.573L977.429 497.388Z" fill="#172D27"/></svg>
       <span class="eyebrow status">Coming soon</span>
     </header>
     <main>
@@ -48,9 +48,6 @@
         <h1>A new space<br>for work.</h1>
         <p class="description">Bring your ideas, people and projects together. One space to create, organize and collaborate.</p>
       </div>
-      <svg class="mark" viewBox="810 205 290 290" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mondoo logo"><rect x="810" y="205" width="290" height="290" rx="72.5" fill="#172D27"/>
-<circle cx="955" cy="350" r="101.953" fill="#DDF49A"/>
-<path d="M1019.08 455.734L849.266 285.919L839.654 295.531L1009.47 465.347Z M1003.06 471.755L833.246 301.94L823.634 311.552L993.45 481.368Z M987.042 487.777L817.226 317.96L807.613 327.573L977.429 497.388Z" fill="#172D27"/></svg>
     </main>
     <footer>
       <span>Mondoo &copy; 2026</span>
